@@ -1,0 +1,13 @@
+# SolidWorks temporary and lock files
+~$*
+*.tmp
+*.bak
+
+# Windows metadata
+Thumbs.db
+Desktop.ini
+
+# Local exports / scratch
+test_*
+*_backup.*
+
