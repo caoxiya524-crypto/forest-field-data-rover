@@ -1,0 +1,36 @@
+{
+  "analysis_type": "2D plane-stress finite-element analysis using constant-strain triangular elements",
+  "geometry": {
+    "length_m": 0.18,
+    "width_m": 0.025,
+    "thickness_m": 0.008
+  },
+  "material_candidate": {
+    "name": "6061-series aluminum",
+    "elastic_modulus_pa": 69000000000.0,
+    "poisson_ratio": 0.33,
+    "density_kg_m3": 2700.0
+  },
+  "boundary_condition": "all in-plane DOFs fixed at chassis-side end",
+  "load_case": {
+    "total_force_n": 150.0,
+    "direction": "negative global y",
+    "application": "distributed over distal wheel-side edge"
+  },
+  "mesh": {
+    "element_type": "CSTRI3 plane stress",
+    "elements": 840,
+    "nodes": 473,
+    "dof": 946
+  },
+  "results": {
+    "max_von_mises_mpa": 30.870231590244803,
+    "max_total_displacement_mm": 0.390075832391915,
+    "display_deformation_scale": 8.0
+  },
+  "limitations": [
+    "Representative lower-link model only, not full rover assembly.",
+    "No pin contact, joint clearance, wheel/tire compliance, bolt preload or chassis flexibility.",
+    "Material is a simulation candidate input, not a finalized manufacturing selection."
+  ]
+}

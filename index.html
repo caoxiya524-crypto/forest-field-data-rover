@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="森林野外数据采集小车：轮腿式平台结构建模与局部有限元静力分析。" />
+    <title>森林野外数据采集小车 | Forest Field Data Rover</title>
+    <link rel="stylesheet" href="site.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#overview">FOREST ROVER</a>
+      <nav aria-label="页面导航">
+        <a href="#overview">概览</a>
+        <a href="#cad">结构模型</a>
+        <a href="#verification">有限元分析</a>
+        <a href="#files">文件</a>
+      </nav>
+      <a class="repo-link" href="https://github.com/caoxiya524-crypto/forest-field-data-rover" target="_blank" rel="noreferrer">GitHub</a>
+    </header>
+
+    <main>
+      <section class="hero" id="overview">
+        <div class="hero-copy">
+          <p class="eyebrow">STRUCTURAL CONCEPT / FIELD SENSING PLATFORM</p>
+          <h1>森林野外数据采集小车</h1>
+          <p class="hero-lede">面向林区样地环境数据采集与火险监测场景的轮腿式移动平台概念设计，并补充轮腿连杆局部有限元静力分析。</p>
+          <div class="hero-meta">
+            <span>SolidWorks 结构建模</span>
+            <span>四轮轮腿机构</span>
+            <span>局部有限元验证</span>
+          </div>
+        </div>
+        <figure class="hero-visual">
+          <img src="isometric.png" alt="森林野外数据采集小车等轴测 SolidWorks 视图" />
+        </figure>
+      </section>
+
+      <section class="band brief">
+        <div class="section-label">01 / DESIGN BRIEF</div>
+        <div class="brief-grid">
+          <div>
+            <h2>项目定位</h2>
+            <p>以轮腿式越障底盘为核心，概念性承载相机、定位模块、环境传感器与近地面探针，为森林样地巡测提供可解释的机械平台方案。</p>
+          </div>
+          <dl>
+            <div><dt>移动机构</dt><dd>四轮 + 两段式轮腿连杆</dd></div>
+            <div><dt>核心载荷</dt><dd>环境传感、视觉采集、定位与探针模块</dd></div>
+            <div><dt>设计重点</dt><dd>结构层级、可维护性、野外通过性与展示表达</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="band model" id="cad">
+        <div class="section-head">
+          <div class="section-label">02 / CAD MODEL</div>
+          <div>
+            <h2>结构模型与功能模块</h2>
+            <p>车体、四轮轮腿机构、关节连接件、顶部环境传感单元与底部近地探针共同构成轻量化野外采集平台。</p>
+          </div>
+        </div>
+        <div class="cad-grid">
+          <figure class="cad-primary"><img src="isometric.png" alt="小车等轴测视图" /><figcaption>等轴测视图：整体比例、轮距和轮腿连接关系。</figcaption></figure>
+          <figure><img src="front.png" alt="小车正视图" /><figcaption>正视图：四轮布置与前向数据采集方向。</figcaption></figure>
+          <figure><img src="top.png" alt="小车顶视图" /><figcaption>顶视图：车体壳体与传感器安装区域。</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="band verification" id="verification">
+        <div class="section-head">
+          <div class="section-label">03 / LOCAL FEA</div>
+          <div>
+            <h2>轮腿下连杆有限元静力分析</h2>
+            <p>针对轮腿机构中的代表性下连杆建立二维平面应力有限元模型，求解固定关节端与轮侧载荷工况下的位移和 von Mises 应力分布。</p>
+          </div>
+        </div>
+        <div class="notice">
+          <strong>模型范围：</strong>180 × 25 × 8 mm 代表性下连杆，候选 6061 系铝合金，二维平面应力 CSTRI3 单元；车体侧关节端固定，轮侧关节界面施加总计 150 N 向下载荷。该结果为局部构件有限元验证，整车接触、轮胎柔顺性和关节间隙将在后续完整装配体模型中补充。
+        </div>
+        <div class="metrics" aria-label="轮腿连杆有限元结果">
+          <div><span>设计载荷</span><strong>150 N</strong><small>轮侧界面分布向下载荷</small></div>
+          <div><span>最大 von Mises 应力</span><strong>30.87 MPa</strong><small>有限元单元应力场最大值</small></div>
+          <div><span>最大总位移</span><strong>0.390 mm</strong><small>轮侧载荷端附近</small></div>
+          <div><span>有限元网格</span><strong>840 / 473</strong><small>CSTRI3 三角形单元 / 节点</small></div>
+        </div>
+        <div class="sim-grid">
+          <figure><img src="fea_mesh_boundary_conditions.png" alt="轮腿连杆有限元网格和边界条件" /><figcaption><strong>网格与边界条件</strong><br />840 个 CSTRI3 平面应力三角形单元；车体侧固定、轮侧加载。</figcaption></figure>
+          <figure><img src="fea_von_mises_stress.png" alt="轮腿连杆有限元 von Mises 应力云图" /><figcaption><strong>von Mises 应力云图</strong><br />应力集中于车体侧固定关节根部，颜色由单元数值结果映射。</figcaption></figure>
+          <figure><img src="fea_total_deformation.png" alt="轮腿连杆有限元总变形云图" /><figcaption><strong>总位移云图</strong><br />变形构型按显示倍率放大；颜色保持真实计算位移大小。</figcaption></figure>
+        </div>
+        <div class="method-grid">
+          <div>
+            <h3>有限元输入</h3>
+            <ul>
+              <li>代表性下连杆：180 × 25 × 8 mm</li>
+              <li>候选材料：6061 系铝合金，E = 69 GPa，ν = 0.33</li>
+              <li>载荷：轮侧关节界面总计 150 N 向下分布力</li>
+              <li>约束：车体侧关节安装端面内位移固定</li>
+            </ul>
+          </div>
+          <div>
+            <h3>结果解读</h3>
+            <ul>
+              <li>最大应力位于车体侧固定端，符合悬臂式轮腿连杆受弯规律</li>
+              <li>位移峰值位于轮侧载荷端，计算值为 0.390 mm</li>
+              <li>当前用于局部构件校核，已具备有限元网格、应力与位移结果</li>
+              <li>下一步应以完整装配体补充销轴接触、轮胎、车体和传感器质量</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="band files" id="files">
+        <div class="section-label">04 / PROJECT FILES</div>
+        <div class="files-grid">
+          <a href="forest_lfmc_fire_rover_final.SLDPRT"><strong>CAD Model</strong><span>最终展示零件模型</span></a>
+          <a href="fea_results.json"><strong>FEA Result Data</strong><span>有限元输入、网格与结果 JSON</span></a>
+          <a href="FEA_README.md"><strong>FEA Method Notes</strong><span>平面应力单元、边界与适用范围</span></a>
+          <a href="run_link_plane_stress_fea.py"><strong>FEA Solver Script</strong><span>本地有限元求解与云图生成脚本</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Forest Field Data Rover</span>
+      <span>Structural concept and local finite-element verification</span>
+    </footer>
+  </body>
+</html>

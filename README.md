@@ -1,53 +1,38 @@
 # 森林野外数据采集小车
 
-Forest Field Data Collection Rover
+**Forest Field Data Rover**
 
-面向森林样地数据采集与火险监测场景的轮腿式野外数据采集小车概念设计。
+面向森林样地环境数据采集与火险监测场景的轮腿式移动平台概念设计。项目包含 SolidWorks 结构建模、多视图输出，以及面向代表性轮腿下连杆的局部有限元静力分析。
 
-本项目基于 SolidWorks 完成单零件多实体结构建模，重点展示车体结构、四轮轮腿机构、连接件、传感器安装区域和野外数据采集平台的整体设计思路。
+## 局部有限元静力分析
 
-## 项目定位
+本上传包中的有限元部分为真实的数值有限元求解，不是解析公式代替。求解对象是轮腿机构中的代表性下连杆，而非整车装配体。
 
-该小车用于概念性承载环境传感器、相机、定位模块和近地面探针等设备，服务于森林野外环境数据采集与火险风险分析相关应用。
+| 项目 | 设置 |
+| --- | --- |
+| 分析对象 | 180 × 25 × 8 mm 代表性下连杆 |
+| 单元类型 | CSTRI3 二维平面应力三角形单元 |
+| 候选材料输入 | 6061 系铝合金，E = 69 GPa，ν = 0.33 |
+| 边界条件 | 车体侧安装端的面内自由度固定 |
+| 载荷工况 | 轮侧端面总计 150 N 向下分布力 |
+| 网格规模 | 840 个单元，473 个节点，946 个自由度 |
+| 最大 von Mises 应力 | 30.87 MPa |
+| 最大总位移 | 0.390 mm |
 
-本项目侧重机械结构建模与产品外观表达，不包含有限元仿真分析。
+![有限元网格与边界条件](fea_mesh_boundary_conditions.png)
+![有限元 von Mises 应力云图](fea_von_mises_stress.png)
+![有限元总位移云图](fea_total_deformation.png)
 
-## 主要设计内容
+### 结果边界
 
-- 轮腿式四轮移动平台结构
-- 主车体与前后设备舱
-- 侧向轮腿连接件与关节安装结构
-- 轮胎、轮毂、连杆和关节实体
-- 顶部环境传感器、天线、载荷安装区
-- 多方向视图输出，用于作品集和面试展示
+- 6061 系铝合金是仿真候选材料输入，不代表项目已完成真实制造材料或设备品牌选型。
+- 该模型不包含销轴接触、关节间隙、螺栓预紧、轮胎柔顺性、车体柔度和真实地形时程。
+- 结果适用于局部连杆在设定载荷下的结构趋势和初步校核，不能替代整车工程定型验证。
 
-## 预览
+## 主要文件
 
-### Isometric
-
-![Isometric](isometric.png)
-
-### Front
-
-![Front](front.png)
-
-### Top
-
-![Top](top.png)
-
-## 文件说明
-
-- `forest_lfmc_fire_rover_final.SLDPRT`：手动调整后的最终展示模型。
-- `forest_lfmc_fire_rover_base_100_connected.SLDPRT`：连接件调整后的基础版本。
-- `front.png`、`isometric.png`、`top.png`、`left.png`、`right.png`、`back.png`、`bottom.png`：多方向视图。
-- `create_v5_light_fourwheel_visual.vbs`：SolidWorks 自动化生成脚本。
-- `export_active_v5_manual_front_direction_views.vbs`：SolidWorks 视图导出脚本。
-- `README_V5_LIGHT_FOURWHEEL.md`：建模过程补充说明。
-
-## 技术栈
-
-- SolidWorks 2025
-- SolidWorks VBA/VBS API
-- 单零件多实体建模
-- 多视图导出与项目文档整理
-
+- `index.html` 与 `site.css`：GitHub Pages 静态展示网页。
+- `fea_mesh_boundary_conditions.png`、`fea_von_mises_stress.png`、`fea_total_deformation.png`：有限元结果图。
+- `fea_results.json` 与 `FEA_README.md`：有限元数据和方法说明。
+- `run_link_plane_stress_fea.py`：可复现本地有限元求解与云图生成的脚本。
+- `forest_lfmc_fire_rover_final.SLDPRT`：最终展示模型。

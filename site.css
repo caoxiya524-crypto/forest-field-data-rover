@@ -1,0 +1,88 @@
+:root {
+  --ink: #1f2b2d;
+  --muted: #657174;
+  --line: #d7dfda;
+  --field: #f5f7f5;
+  --evergreen: #1e6354;
+  --orange: #d6693c;
+  --blue: #407995;
+  --white: #ffffff;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--field); color: var(--ink); font-family: "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; line-height: 1.65; }
+a { color: inherit; }
+
+.site-header { min-height: 72px; padding: 0 5vw; display: flex; align-items: center; gap: 28px; justify-content: space-between; background: rgba(255,255,255,.94); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 5; backdrop-filter: blur(12px); }
+.brand { color: var(--evergreen); text-decoration: none; font-size: 14px; letter-spacing: .12em; font-weight: 800; white-space: nowrap; }
+.site-header nav { display: flex; gap: 22px; margin-left: auto; }
+.site-header nav a, .repo-link { text-decoration: none; color: #4e5a5d; font-size: 14px; }
+.site-header nav a:hover, .repo-link:hover { color: var(--evergreen); }
+.repo-link { font-weight: 800; color: var(--evergreen); }
+
+.hero { min-height: 670px; padding: 90px 5vw 48px; position: relative; overflow: hidden; background: var(--white); display: grid; grid-template-columns: minmax(300px, .8fr) minmax(580px, 1.2fr); align-items: center; gap: 28px; }
+.hero-copy { position: relative; z-index: 1; max-width: 560px; }
+.eyebrow, .section-label { margin: 0 0 14px; font-size: 12px; letter-spacing: .13em; color: var(--evergreen); font-weight: 800; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { font-size: clamp(42px, 4.5vw, 74px); line-height: 1.16; margin-bottom: 24px; letter-spacing: 0; }
+.hero-lede { max-width: 460px; font-size: 19px; color: #4f5d60; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.hero-meta span { border: 1px solid #b9c8c0; color: #315449; font-size: 13px; padding: 6px 10px; }
+.hero-visual { align-self: stretch; margin: 0; display: flex; align-items: center; justify-content: center; }
+.hero-visual img { width: min(100%, 900px); max-height: 560px; object-fit: contain; mix-blend-mode: multiply; }
+
+.band { padding: 90px 5vw; border-top: 1px solid var(--line); }
+.brief { background: #edf1ed; }
+.brief-grid { margin-top: 22px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(360px, .9fr); gap: clamp(40px, 7vw, 130px); }
+h2 { font-size: 32px; line-height: 1.25; margin-bottom: 18px; }
+h3 { font-size: 18px; margin-bottom: 13px; }
+.brief p, .section-head p { color: #526064; max-width: 700px; font-size: 17px; }
+dl { margin: 0; border-top: 1px solid #bdc9c1; }
+dl div { display: grid; grid-template-columns: 120px 1fr; padding: 16px 0; border-bottom: 1px solid #bdc9c1; }
+dt { color: var(--muted); } dd { margin: 0; font-weight: 700; }
+
+.section-head { display: grid; grid-template-columns: minmax(180px, .35fr) minmax(0, 1.35fr); gap: 36px; margin-bottom: 40px; }
+.cad-grid { display: grid; grid-template-columns: 1.45fr 1fr 1fr; gap: 18px; }
+figure { margin: 0; }
+.cad-grid figure { background: var(--white); border: 1px solid var(--line); }
+.cad-grid img { display: block; width: 100%; aspect-ratio: 1.22; object-fit: contain; mix-blend-mode: multiply; }
+figcaption { padding: 13px 15px 16px; color: #526064; font-size: 14px; border-top: 1px solid #e4e9e5; }
+
+.verification { background: #fbfcfa; }
+.notice { border-left: 4px solid var(--orange); background: #fff6ee; padding: 16px 18px; color: #5a4a3f; margin: 0 0 34px; }
+.metrics { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 36px; }
+.metrics div { padding: 20px 22px; border-right: 1px solid var(--line); min-height: 142px; }
+.metrics div:last-child { border-right: none; }
+.metrics span, .metrics small { display: block; color: var(--muted); font-size: 13px; }
+.metrics strong { display: block; color: var(--evergreen); font-size: 29px; line-height: 1.2; margin: 10px 0 7px; }
+.sim-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.sim-grid figure { border: 1px solid var(--line); background: var(--white); }
+.sim-grid img { width: 100%; display: block; aspect-ratio: 1.8; object-fit: cover; object-position: center; }
+code { font-family: Consolas, monospace; color: #315449; }
+.method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding-top: 46px; }
+.method-grid > div { border-top: 2px solid var(--evergreen); padding-top: 17px; }
+.method-grid ul { margin: 0; padding-left: 20px; color: #526064; }
+
+.files { background: #edf1ed; }
+.files-grid { margin-top: 24px; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #bdc9c1; }
+.files-grid a { min-height: 126px; padding: 20px; text-decoration: none; border-right: 1px solid #bdc9c1; border-bottom: 1px solid #bdc9c1; transition: background .2s ease; }
+.files-grid a:last-child { border-right: none; }
+.files-grid a:hover { background: #dfe9e1; }
+.files-grid strong, .files-grid span { display: block; }
+.files-grid strong { color: var(--evergreen); font-size: 17px; margin-bottom: 9px; }
+.files-grid span { color: #526064; font-size: 14px; }
+
+footer { padding: 34px 5vw; display: flex; justify-content: space-between; gap: 20px; color: #6a7474; background: #1f2b2d; color: #d8e0dc; font-size: 13px; }
+
+@media (max-width: 900px) {
+  .site-header { padding: 0 20px; } .site-header nav { display: none; }
+  .hero { min-height: auto; display: block; padding: 64px 22px 30px; }
+  .hero-visual { margin-top: 28px; } .hero-visual img { max-height: 360px; }
+  .band { padding: 60px 22px; } .brief-grid, .section-head, .cad-grid, .method-grid { grid-template-columns: 1fr; }
+  .section-head { gap: 12px; } .metrics { grid-template-columns: 1fr 1fr; }
+  .metrics div:nth-child(2) { border-right: none; } .metrics div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .sim-grid { grid-template-columns: 1fr; } .files-grid { grid-template-columns: 1fr 1fr; }
+  .files-grid a:nth-child(2) { border-right: none; } .files-grid a:nth-child(3) { border-right: 1px solid #bdc9c1; }
+  footer { padding: 28px 22px; flex-direction: column; }
+}

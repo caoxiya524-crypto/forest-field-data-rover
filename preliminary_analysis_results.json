@@ -1,0 +1,26 @@
+{
+  "analysis_type": "preliminary analytical screening; not finite element analysis",
+  "model": "single wheel-leg link treated as a cantilever beam",
+  "inputs": {
+    "material_candidate": "6061-series aluminum",
+    "elastic_modulus_pa": 69000000000.0,
+    "yield_reference_pa": 276000000.0,
+    "density_kg_m3": 2700.0,
+    "effective_length_m": 0.18,
+    "section_width_m": 0.025,
+    "section_thickness_m": 0.008,
+    "design_load_n": 150.0
+  },
+  "results": {
+    "second_moment_m4": 1.066666666666667e-09,
+    "design_stress_mpa": 101.24999999999997,
+    "design_tip_deflection_mm": 3.9619565217391295,
+    "screening_safety_factor": 2.7259259259259268,
+    "isolated_link_first_bending_frequency_hz": 201.63592023970907
+  },
+  "limitations": [
+    "No contact, joint clearance, fastener preload, tire compliance or chassis flexibility is included.",
+    "Load cases are comparative design assumptions, not measured field loads.",
+    "The modal estimate excludes wheel, motor, sensor payload and joint compliance."
+  ]
+}
